@@ -20,4 +20,14 @@ class Quiz extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    public function quizResults()
+    {
+        return $this->hasMany(QuizResult::class);
+    }
+
+    public function results()
+    {
+        return $this->hasMany(QuizResult::class);
+    }
 }
