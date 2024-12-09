@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <img src="{{ asset('images/ql.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
+    <img src="{{ asset('images/qlf.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
     <a href="{{ route('quiz.view', ['subjectId' => $quiz->subject_id, 'quizId' => $quiz->id]) }}" class="class-link" style="position: relative; top: -2.5rem;">
         &lt;Quiz
     </a>

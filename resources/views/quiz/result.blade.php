@@ -38,7 +38,6 @@
         <div class="mt-4 quiz">
             <div class="quiz-header">
                 <h3>List of Quizzes</h3>
-                <!-- <a href="{{ route('quiz.create', ['subjectId' => $subject->id]) }}" class="btn btn-create-quiz">Create New Quiz</a> -->
             </div>
             <ul class="quiz-list">
                 @if($subject->quizzes->isEmpty())

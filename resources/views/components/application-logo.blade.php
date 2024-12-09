@@ -1,1 +1,1 @@
-<img src="{{ asset('images/ql.png') }}" alt="Logo" class="logo" style="width: 10rem; height: 4rem;">
+<img src="{{ asset('images/qlf.png') }}" alt="Logo" class="logo" style="width: 10rem; height: 4rem;">

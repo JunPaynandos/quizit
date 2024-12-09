@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
 
-    <img src="{{ asset('images/ql.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
+    <img src="{{ asset('images/qlf.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
     <a href="{{ route('quiz.make', ['subjectId' => $subject->id]) }}" class="class-link" style="position: relative; top: -2.5rem;">
         &lt;Quiz
     </a>

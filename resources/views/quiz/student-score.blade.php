@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-    <img src="{{ asset('images/ql.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
+    <img src="{{ asset('images/qlf.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
     <a href="{{ route('subject.quiz', ['subjectId' => $subject->id]) }}" class="class-link" style="position: relative; top: -2.5rem;">
         &lt;Quiz
     </a>
@@ -27,9 +27,9 @@
                     <p  style="position: relative; top: 10px; bottom: 5px;">
                         <strong>Your Answer:</strong>
                         @if ($result['user_answer'] === $result['correct_answer'])
-                            <span style="color: #259e6e;">{{ $result['user_answer'] }}</span> <!-- Correct answer in green -->
+                            <span style="color: #259e6e;">{{ $result['user_answer'] }}</span>
                         @else
-                            <span style="color: #bb2d3b;">{{ $result['user_answer'] }}</span> <!-- Incorrect answer in red -->
+                            <span style="color: #bb2d3b;">{{ $result['user_answer'] }}</span>
                         @endif
                     </p>
                     <hr>
@@ -83,13 +83,12 @@
     }
 
     .class-link {
-        color: gray;  /* Initial color */
+        color: gray;
         text-decoration: none;
         transition: color 0.3s ease, border-bottom 0.3s ease;
     }
 
     .class-link:hover {
-        color: #259e6e;  /* Color on hover */
-        /* text-decoration: underline; */
+        color: #259e6e; 
     }
 </style>

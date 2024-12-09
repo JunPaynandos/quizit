@@ -41,12 +41,11 @@
 @section('content')
 <style>
     .question {
-        /* background: rgba(81, 253, 189, 0.1);  */
         border: 1px solid lightgray;
         border-radius: 10px;
         backdrop-filter: blur(10px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-        margin-bottom: 20px; /* Adding margin to separate questions */
+        margin-bottom: 20px;
         padding: 20px;
     }
 
@@ -126,7 +125,6 @@
         padding: 10px;     
     }
 
-    /* Custom styles for the Edit button */
     .edit-btn {
         background-color: #33b482;
         color: white;
@@ -141,7 +139,6 @@
         background-color: #259e6e;
     }
 
-    /* Custom styles for the Delete button */
     .delete-btn {
         background-color: #f44336;
         color: white;
@@ -156,15 +153,14 @@
         background-color: #d32f2f;
     }
 
-    /* Style for input fields */
     input.form-control {
         color: black;
     }
 
-    /* Style for input fields when focused */
+
     input.form-control:focus {
         border-color: #33b482;
-        box-shadow: 0 0 0 0.2rem rgba(51, 180, 130, 0.25); /* Focus box shadow */
+        box-shadow: 0 0 0 0.2rem rgba(51, 180, 130, 0.25);
     }
 
     input[type="checkbox"] {
@@ -178,10 +174,9 @@
         accent-color: #33b482;
     }
 
-    /* Style for checkbox when focused */
     input[type="checkbox"]:focus {
         background=color: #33b482;
-        box-shadow: 0 0 0 0.2rem rgba(51, 180, 130, 0.25); /* Focus box shadow for checkbox */
+        box-shadow: 0 0 0 0.2rem rgba(51, 180, 130, 0.25);
     }
 
     .btn-submit {
@@ -205,7 +200,7 @@
 
 <!-- Main Content -->
 <div class="container my-5">
-    <img src="{{ asset('images/ql.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
+    <img src="{{ asset('images/qlf.png') }}" alt="Logo" class="logo" style="width: 8rem; height: 4rem;">
     
     <a href="{{ route('quiz.make', ['subjectId' => $quiz->subject_id]) }}" class="class-link" style="position: relative; top: -2.5rem;">
         &lt;Quiz
