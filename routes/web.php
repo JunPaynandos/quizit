@@ -65,7 +65,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 //Routes for teacher role
-
+Route::middleware(['auth', 'verified', 'role:teacher'])->group(function () {
+    Route::get('/teacher/class', [SubjectController::class, 'index'])->name('teacher.class');
+    Route::post('/classes', [SubjectController::class, 'store'])->name('classes.store');
+    Route::get('/teacher/subject/{id}', [SubjectController::class, 'show'])->name('teacher.subject');
+    Route::get('/teacher/subject/{id}', [SubjectController::class, 'show'])->name('subject.show');
+    Route::delete('/teacher/subject/{id}', [SubjectController::class, 'destroy']); 
+    Route::post('/teacher/subject/{id}/upload', [SubjectController::class, 'uploadFile'])->name('subject.uploadFile');
+    Route::delete('/subject/{subjectId}/file/{fileId}', [SubjectController::class, 'deleteFile'])->name('subject.deleteFile');
+    Route::get('/subject/{subjectId}/quiz/create', [QuizController::class, 'create'])->name('quiz.create');
+    Route::post('/subject/{subjectId}/quiz/store', [QuizController::class, 'store'])->name('quiz.store');
+    Route::get('/subject/{subjectId}/quiz/{quizId}', [QuizController::class, 'show'])->name('quiz.show');
+    Route::get('/quiz/{subjectId}/{quizId}', [QuizController::class, 'show'])->name('quiz.show');
+    Route::get('/teacher/subject/{subjectId}/quiz/results', [QuizController::class, 'showResults'])->name('quiz.result'); 
+    Route::get('/teacher/subject/{subjectId}/quiz/make', [QuizController::class, 'make'])->name('quiz.make');
+    Route::post('/quiz/{quizId}/question/{questionId}/update', [QuizController::class, 'updateQuestion'])->name('question.update');
+    Route::delete('/quiz/{quizId}/question/{questionId}/delete', [QuizController::class, 'deleteQuestion'])->name('question.delete');
+    Route::get('/teacher/subject/{subjectId}/students', [SubjectController::class, 'showStudents'])->name('teacher.students');
+    Route::get('teacher/subjects/{subject}/students', [SubjectController::class, 'studentList'])->name('subject.studentList');
+    Route::delete('teacher/subjects/{subject}/students/{student}', [SubjectController::class, 'removeStudent'])->name('subject.removeStudent');
+    Route::delete('/teacher/subject/{subjectId}/quiz/{quizId}/delete', [QuizController::class, 'deleteQuiz'])->name('quiz.delete');
+});
 
 //Route for student role
 Route::middleware(['auth', 'verified', 'role:student'])->group(function () {
