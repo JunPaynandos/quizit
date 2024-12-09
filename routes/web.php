@@ -68,6 +68,28 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 //Route for student role
+Route::middleware(['auth', 'verified', 'role:student'])->group(function () {
+    Route::get('/student/class', [SubjectController::class, 'studentIndex'])->name('student.class');
+    Route::get('/student/subject/{id}', [SubjectController::class, 'showSubject'])->name('student.subject');
+    Route::get('subject/{subjectId}/quiz/{quizId}/take', [QuizController::class, 'takeQuiz'])->name('quiz.take');
+    Route::post('subject/{subjectId}/quiz/{quizId}/submit', [QuizController::class, 'submitQuiz'])->name('quiz.submit');
+    Route::get('/student/subject/{id}', [SubjectController::class, 'showSubject'])->name('student.subject');
+    Route::get('/subject/{subjectId}/quiz/{quizId}/result', [QuizController::class, 'showQuizResult'])->name('quiz.student-score');
+    Route::get('/subject/{subjectId}/quiz/{quizId}', [QuizController::class, 'viewQuiz'])->name('quiz.view');
+    Route::get('/subject/{subjectId}/quiz', function ($subjectId) {
+        // Find the subject using the ID passed in the URL
+        $subject = Subject::findOrFail($subjectId);
+        
+        // Return the view 'view-quiz' and pass the subject to the view
+        return view('student/view-quiz', compact('subject'));
+    })->name('subject.quiz');
+});
+
+Route::get('/subject/{subjectId}/file/{fileId}/download', [SubjectController::class, 'downloadFile'])->name('subject.downloadFile');
+Route::get('/subject/{subjectId}/file/{fileId}/view', [SubjectController::class, 'viewFile'])->name('subject.viewFile');
+Route::get('/quiz/{subjectId}/{quizId}/score', [QuizController::class, 'showScore'])->name('quiz.score');
+
+
 
 
 require __DIR__.'/auth.php';
